@@ -10,7 +10,9 @@ router.get('/getUsers',function (req,res){
        if(err!=null){
            res.send(err.message);
        }else {
-           res.send(data);
+           const text = data;
+           const myArr = JSON.parse(text)
+           res.send(myArr);
        }
    })
 });
