@@ -22,15 +22,11 @@ var storage=multer.diskStorage({
         cb(null,'upload/');
     },
     filename :function (req,file,cb){
-        cb(null,Date.now()+'.jpeg');
+        cb(null,Date.now()+'-'+file.originalname);
     }
 });
-var upload = multer({
-    storage: storage, limits: {
-
-    }
-});
-router.post('/addUsers',multer.single('avatar'), function (req, res) {
+var upload = multer({storage:storage})
+router.post('/addUsers',upload.single('avatar'), function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var data = {
