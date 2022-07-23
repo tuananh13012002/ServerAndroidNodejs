@@ -5,9 +5,9 @@ var fs=require('fs');
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('getUsers',function (req,res){
+router.get('/getUsers',function (req,res){
    fs.readFile('data/data.txt',function (err,data){
-       if(er!=null){
+       if(err!=null){
            res.send(err.message);
        }else {
            res.send(data);
