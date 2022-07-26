@@ -3,19 +3,39 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      .container{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+      .form{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+      }
+      input{
+        margin: 5px;
+      }
+      button{
+        margin: 5px;
+      }
+    </style>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <div class="container">
+      <form class="form" method="post" enctype="multipart/form-data" action="/addUsers">
 
-    <form method="post" enctype="multipart/form-data" action="/createUser">
+        <input name="email">
+        <input name="password">
+        <input type="file" name="avatar">
+        <button type="submit">submit</button>
 
-      <input name="email">
-      <input name="password">
-      <input type="file" name="avatar">
-      <button type="submit">submit</button>
+      </form>
+    </div>
 
-    </form>
 
   </body>
 </html>
